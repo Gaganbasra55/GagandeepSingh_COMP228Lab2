@@ -38,10 +38,10 @@ public class Test {
         for (int i = 0; i < this.questions.length; i++) {
             value = checkAnswer(JOptionPane.showInputDialog("Question " + (i + 1) + "!\n\n" + this.questions[i] + "\n\n" + this.options[i]), i);
             if (value)
-                JOptionPane.showMessageDialog(null, generateMessage(flag, i), "Congratulations!", 1);
+                JOptionPane.showMessageDialog(null, generateMessage(value, i), "Congratulations!", 1);
 
             else
-                JOptionPane.showMessageDialog(null, generateMessage(flag, i), "OOPS!", 0);
+                JOptionPane.showMessageDialog(null, generateMessage(value, i), "OOPS!", 0);
         }
     }
 
@@ -93,5 +93,19 @@ public class Test {
         return "";
     }
 
+    public void inputAnswer() {
 
-}
+        //result containing correct,incorrect and final score
+        JOptionPane.showMessageDialog(null,
+                                                        "Result\n"+"Questions answered correctly are:"+this.rightAnswers+"\n"
+                                                                        +"Questions answered wrongly are: "+ this.wrongAnswers+"\n"
+                                                                        +"Total:"+(((double) this.rightAnswers / (double) this.questions.length) * 100) + "%/100%","marks",1);
+        if(((double) this.rightAnswers / (double) this.questions.length) * 100<50)
+            JOptionPane.showMessageDialog(null, "Test failed", "Failed", 0);
+
+		else
+            JOptionPane.showMessageDialog(null, "Test passed", "passed!", 1);
+
+        }
+
+    }
