@@ -13,8 +13,6 @@ public class Lotto {
     }
     //Method that returns the array
     public int[] getArray(){
-
-
         return this.lottoNumbers;
     }
 
@@ -26,4 +24,3 @@ public class Lotto {
 
 }
 
-}
