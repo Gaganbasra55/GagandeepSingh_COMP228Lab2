@@ -68,13 +68,13 @@ public class Test {
                 case 0:
                     JOptionPane.showMessageDialog(null, "Excellent!");
                     break;
-                    case 1:
+                case 1:
                     JOptionPane.showMessageDialog(null, "Good!");
                     break;
-                    case 2:
+                case 2:
                     JOptionPane.showMessageDialog(null, "Keep up the good work");
                     break;
-                    case 3:
+                case 3:
                     JOptionPane.showMessageDialog(null, "Nice work!");
                     break;
             }
@@ -86,13 +86,13 @@ public class Test {
                 case 0:
                     JOptionPane.showMessageDialog(null, "No. Please try again");
                     break;
-                    case 1:
+                case 1:
                     JOptionPane.showMessageDialog(null, "Wrong. Try once more");
                     break;
-                    case 2:
+                case 2:
                     JOptionPane.showMessageDialog(null, "Don't give up");
                     break;
-                    case 3:
+                case 3:
                     JOptionPane.showMessageDialog(null, "No. Keep trying");
                     break;
             }
@@ -110,7 +110,7 @@ public class Test {
         JOptionPane.showMessageDialog(null,
                                                         "Result\n"+"Questions answered correctly are:"+this.rightAnswers+"\n"
                                                                         +"Questions answered wrongly are: "+ this.wrongAnswers+"\n"
-                                                                        +"Total:"+(((double) this.rightAnswers / (double) this.questions.length) * 100) + "%/100%","marks",1);
+                                                                        +"Total:"+(((double) this.rightAnswers / (double) this.questions.length) * 100) + "%","marks",1);
         if(((double) this.rightAnswers / (double) this.questions.length) * 100<50)
             JOptionPane.showMessageDialog(null, "Test failed", "Failed", 0);
 
