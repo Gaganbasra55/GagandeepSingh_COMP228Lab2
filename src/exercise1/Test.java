@@ -67,12 +67,16 @@ public class Test {
 
                 case 0:
                     JOptionPane.showMessageDialog(null, "Excellent!");
-                case 1:
+                    break;
+                    case 1:
                     JOptionPane.showMessageDialog(null, "Good!");
-                case 2:
+                    break;
+                    case 2:
                     JOptionPane.showMessageDialog(null, "Keep up the good work");
-                case 3:
+                    break;
+                    case 3:
                     JOptionPane.showMessageDialog(null, "Nice work!");
+                    break;
             }
         }
         // Incorrect answer
@@ -81,12 +85,16 @@ public class Test {
             switch (this.randomNumbers.nextInt(4)) {
                 case 0:
                     JOptionPane.showMessageDialog(null, "No. Please try again");
-                case 1:
+                    break;
+                    case 1:
                     JOptionPane.showMessageDialog(null, "Wrong. Try once more");
-                case 2:
+                    break;
+                    case 2:
                     JOptionPane.showMessageDialog(null, "Don't give up");
-                case 3:
+                    break;
+                    case 3:
                     JOptionPane.showMessageDialog(null, "No. Keep trying");
+                    break;
             }
         }
 
@@ -94,6 +102,9 @@ public class Test {
     }
 
     public void inputAnswer() {
+
+        JOptionPane.showMessageDialog(null,"Java Test");
+        this.simulateQuestion();
 
         //result containing correct,incorrect and final score
         JOptionPane.showMessageDialog(null,
