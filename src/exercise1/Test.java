@@ -17,7 +17,7 @@ public class Test {
 
     //options for each questions
     private final String[] options = {"a) at compile-time \nb) at run-time\nc) depends on code \nd) none",
-            "a) syntax \nb)punctuation \nc) keywords \nd) operators",
+            "a) syntax \nb) punctuation \nc) keywords \nd) operators",
             "a) machine code \nb) byte code \nc) source code \nd) HTML",
             "a) constant \nb) namedConstant \nc) final \nd)concrete",
             "a) period \nb) parenthesis \nc) semicolon \nd)ending brace"};
@@ -38,10 +38,10 @@ public class Test {
         for (int i = 0; i < this.questions.length; i++) {
             value = checkAnswer(JOptionPane.showInputDialog("Question " + (i + 1) + "!\n\n" + this.questions[i] + "\n\n" + this.options[i]), i);
             if (value)
-                JOptionPane.showMessageDialog(null, generateMessage(value, i), "Congratulations!", 1);
+                generateMessage(value, i);
 
             else
-                JOptionPane.showMessageDialog(null, generateMessage(value, i), "OOPS!", 0);
+                generateMessage(value, i);
         }
     }
 
@@ -58,7 +58,7 @@ public class Test {
     }
     // Method that returns the appropriate message
 
-    public String generateMessage(boolean flag, int questionNumber) {
+    public void generateMessage(boolean flag, int questionNumber) {
 
         // Correct answer
         if (flag) {
@@ -98,7 +98,6 @@ public class Test {
             }
         }
 
-        return "";
     }
 
     public void inputAnswer() {
