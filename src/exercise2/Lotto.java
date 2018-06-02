@@ -1,6 +1,7 @@
 package exercise2;
 
 public class Lotto {
+
     //Array
     private int[] lottoNumbers = new int[3];
 
@@ -16,6 +17,7 @@ public class Lotto {
         return this.lottoNumbers;
     }
 
+    // method that return sum of numbers
     public int sum(){
 
         return (this.lottoNumbers[0]+this.lottoNumbers[1]+this.lottoNumbers[2]);

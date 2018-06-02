@@ -15,13 +15,13 @@ public class LottoTest {
     //Generate random number
     private static int generateNumber() {
 
-        return 1 + randomNumbers.nextInt(5);
+        return 1 + randomNumbers.nextInt(9);
     }
     private static void lottoGame() {
 
         int selectedNumber;
 
-        //String that will have a format to output information
+
         String runReport;
         int times = 0;
         JOptionPane.showMessageDialog(null, "Time to play Lotto", "Lotto Game", 1);
