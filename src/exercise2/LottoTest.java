@@ -8,22 +8,21 @@ public class LottoTest {
 
     public static void main(String[] args) {
 
-
         //Call lottoGame function
         lottoGame();
-
     }
+
     //Generate random number
     private static int generateNumber() {
 
-        return 1 + randomNumbers.nextInt(9);
+        return 1 + randomNumbers.nextInt(5);
     }
     private static void lottoGame() {
-        //Boolean value to control a loop
-        boolean value = false;
-        int selectedNumber = 0;
+
+        int selectedNumber;
+
         //String that will have a format to output information
-        String runReport = "";
+        String runReport;
         int times = 0;
         JOptionPane.showMessageDialog(null, "Time to play Lotto", "Lotto Game", 1);
 
@@ -35,8 +34,7 @@ public class LottoTest {
             //Creating Lotto Object with random numbers
             Lotto l1 = new Lotto(generateNumber(), generateNumber(), generateNumber());
             //auxiliary array to display information
-            int[] aux = new int[3];
-            aux = l1.getArray();
+            int[] aux = l1.getArray();
             //Formatting String
             runReport = String.format("\n1st number = %d%n2nd number = %d%n3rd number = %d"
                                     + "\n\nThe number you entered is: %d%n"

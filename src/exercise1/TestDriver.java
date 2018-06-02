@@ -5,7 +5,7 @@ public class TestDriver {
 
         //Creating test object and running the test
         Test myTest = new Test();
-        myTest.inputAnswer();
+        myTest.startTest();
     }
 
 }

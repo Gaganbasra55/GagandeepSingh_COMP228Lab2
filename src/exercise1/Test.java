@@ -4,16 +4,17 @@ import javax.swing.*;
 import java.security.SecureRandom;
 
 public class Test {
+
     // random-number generation
     private final SecureRandom randomNumbers = new SecureRandom();
     private int rightAnswers, wrongAnswers = 0;
 
     //set of questions
     private final String[] questions = {"The object is created with new keyword:",
-            "These are rules that must be followed when writing a program:",
+            "These are the rules that must be followed when writing a program:",
             "The java compiler generates:",
             "Which keyword is used to declare a named constant?",
-            "Every complete statement ends with:"};
+            "Every complete java statement ends with:"};
 
     //options for each questions
     private final String[] options = {"a) at compile-time \nb) at run-time\nc) depends on code \nd) none",
@@ -26,22 +27,24 @@ public class Test {
     //array containing answers
     private final String[] answerKey = {"b", "a", "b", "c", "c"};
 
-    //prompt correct answer when user answer incorrectly
-
 // Generate and prompt questions
 
-    public void simulateQuestion() {
+    public void simulateQuestion() throws NullPointerException{
 
-        boolean value = false;//value will be true if answer is correct
+        boolean value;//value will be true if answer is correct
 
         //prompting questions
+
         for (int i = 0; i < this.questions.length; i++) {
-            value = checkAnswer(JOptionPane.showInputDialog("Question " + (i + 1) + "!\n\n" + this.questions[i] + "\n\n" + this.options[i]), i);
+            String ans = JOptionPane.showInputDialog("Question " + (i + 1) + "!\n\n" + this.questions[i] + "\n\n" + this.options[i]);
+            if(ans.equals(null))
+                return;
+            value = checkAnswer(ans,i);
             if (value)
-                generateMessage(value, i);
+                generateMessage(value);
 
             else
-                generateMessage(value, i);
+                generateMessage(value);
         }
     }
 
@@ -58,10 +61,10 @@ public class Test {
     }
     // Method that returns the appropriate message
 
-    public void generateMessage(boolean flag, int questionNumber) {
+    public void generateMessage(boolean value) {
 
         // Correct answer
-        if (flag) {
+        if (value) {
 
             switch (this.randomNumbers.nextInt(4)) {
 
@@ -100,22 +103,33 @@ public class Test {
 
     }
 
-    public void inputAnswer() {
+    public void inputAnswer(){
 
-        JOptionPane.showMessageDialog(null,"Java Test");
-        this.simulateQuestion();
+        try{
+            this.simulateQuestion();
+        }
+            catch (NullPointerException e){
+                return;
+            }
 
-        //result containing correct,incorrect and final score
-        JOptionPane.showMessageDialog(null,
-                                                        "Result\n"+"Questions answered correctly are:"+this.rightAnswers+"\n"
-                                                                        +"Questions answered wrongly are: "+ this.wrongAnswers+"\n"
-                                                                        +"Total:"+(((double) this.rightAnswers / (double) this.questions.length) * 100) + "%","marks",1);
-        if(((double) this.rightAnswers / (double) this.questions.length) * 100<50)
-            JOptionPane.showMessageDialog(null, "Test failed", "Failed", 0);
+        }
+        //method to start the test
+        public void startTest(){
 
-		else
-            JOptionPane.showMessageDialog(null, "Test passed", "passed!", 1);
+            JOptionPane.showMessageDialog(null,"Java Test");
+            inputAnswer();
 
+            JOptionPane.showMessageDialog(null, "Result\n"+"Questions answered correctly are:"+this.rightAnswers+"\n"
+                    +"Questions answered wrongly are: "+ this.wrongAnswers+"\n"
+                    +"Total:"+(((double) this.rightAnswers / (double) this.questions.length) * 100) + "%","marks",1);
+
+            if(((double) this.rightAnswers / (double) this.questions.length) * 100<50)
+                JOptionPane.showMessageDialog(null, "Test failed", "Failed", 0);
+
+            else
+                JOptionPane.showMessageDialog(null, "Test passed", "passed!", 1);
         }
 
     }
+
+
